@@ -1,6 +1,6 @@
-package se.iths.gruppfem.model;
+package se.iths.gruppfem.app.model;
 
-public class HorrorMovie extends Movie{
+public class HorrorMovie extends Movie {
 
     public HorrorMovie() {
     }

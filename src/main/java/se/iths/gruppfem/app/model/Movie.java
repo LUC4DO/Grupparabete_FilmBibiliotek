@@ -1,4 +1,4 @@
-package se.iths.gruppfem.model;
+package se.iths.gruppfem.app.model;
 
 public abstract class Movie {
 

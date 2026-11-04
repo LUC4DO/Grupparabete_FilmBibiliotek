@@ -1,4 +1,4 @@
-package se.iths.gruppfem;
+package se.iths.gruppfem.app;
 
 public class Main {
     static void main() {
