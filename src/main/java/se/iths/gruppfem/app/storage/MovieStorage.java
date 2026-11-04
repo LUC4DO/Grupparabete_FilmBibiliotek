@@ -1,4 +1,4 @@
-package se.iths.gruppfem.storage;
+package se.iths.gruppfem.app.storage;
 
 import java.io.IOException;
 import java.util.List;
