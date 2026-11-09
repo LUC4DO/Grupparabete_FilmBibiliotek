@@ -45,9 +45,7 @@ public class DramaMovieStorageTest {
     }
 
     @Test
-    void
-
-            () throws IOException {
+    void findAllReturnsEmptyListWhenFileDoesNotExist() throws IOException {
         Path file = tempDir.resolve("movie.json");
         DramaMovieStorage storage = new DramaMovieStorage(file);
 
@@ -56,9 +54,6 @@ public class DramaMovieStorageTest {
 
     @Test
     void findByIdReturnsNullWhenMovieDoesNotExist() throws IOException {
-
-
-
         Path file = tempDir.resolve("movie.json");
         DramaMovieStorage storage = new DramaMovieStorage(file);
 
