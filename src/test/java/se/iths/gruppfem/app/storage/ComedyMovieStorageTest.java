@@ -28,7 +28,7 @@ public class ComedyMovieStorageTest {
         ComedyMovieStorage storage = new ComedyMovieStorage(path);//instans med sökväg
         ComedyMovie movie = new ComedyMovie(1, "Dum och dummare");
         storage.save(movie);
-        ComedyMovie result = storage.findById(1);
+        ComedyMovie result = storage.findById(movie.getId());
         assertEquals(1, result.getId());//kontrollerar ID
         assertEquals("Dum och dummare", result.getTitle());// kontrollerar film titel
         // hittas och stämmer
@@ -41,18 +41,18 @@ public class ComedyMovieStorageTest {
     void Duplicates() throws IOException {
 
         Path path = tempDir.resolve("ComedyMovie.json");
-        ComedyMovieStorage storage = new ComedyMovieStorage(path);//instans med sökväg
 
         ComedyMovie movie = new ComedyMovie(1, "Dum och dummare");
-        storage.save(movie);
+
         ComedyMovie movie1 = new ComedyMovie(1, "Sälllskapsresan");
+        ComedyMovieStorage storage = new ComedyMovieStorage(path);//instans med sökväg
+        storage.save(movie);
         storage.save(movie1);
-
-
         List<ComedyMovie> movies = storage.findAll();
 
+
         assertEquals(1, movies.size());// kontrollerar att listan innehåller exakt 1 film;
-        assertEquals("Dum och dummare", movies.get(0).getTitle());
+        assertEquals("Dum och dummare", movies.getFirst().getTitle());
 
     }
 

@@ -28,17 +28,18 @@ public class ComedyMovieStorage implements MovieStorage<ComedyMovie> {
             return;
         }
 
-        List<ComedyMovie> ComedyMovie = new ArrayList<>(findAll());
-        ComedyMovie.add(movie);
-        mapper.writerWithDefaultPrettyPrinter().writeValue(path.toFile(), ComedyMovie);
+        List<ComedyMovie> comedyMovies = new ArrayList<>(findAll());
+        comedyMovies.add(movie);
+        mapper.writerWithDefaultPrettyPrinter().writeValue(path.toFile(), comedyMovies);
 
     }
 
     @Override
     public ComedyMovie findById(int id) throws IOException {
         List<ComedyMovie> comedyMovies = findAll();
-        for (ComedyMovie Movie : comedyMovies) {
-            if (Movie.getId() == id) {
+        for (ComedyMovie movie : comedyMovies) {
+            if (movie.getId() == id) {
+                return movie;
             }
         }
         return null;
