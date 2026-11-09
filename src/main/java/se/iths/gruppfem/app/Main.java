@@ -1,16 +1,12 @@
 package se.iths.gruppfem.app;
 
 import se.iths.gruppfem.app.model.ComedyMovie;
+import se.iths.gruppfem.app.model.DramaMovie;
 import se.iths.gruppfem.app.model.HorrorMovie;
 import se.iths.gruppfem.app.storage.ComedyMovieStorage;
+import se.iths.gruppfem.app.storage.DramaMovieStorage;
 import se.iths.gruppfem.app.storage.HorrorMovieStorage;
 import se.iths.gruppfem.app.storage.MovieStorage;
-
-import java.io.IOException;
-import java.nio.file.Path;
-
-import se.iths.gruppfem.app.model.DramaMovie;
-import se.iths.gruppfem.app.storage.DramaMovieStorage;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -67,7 +63,7 @@ public class Main {
             ComedyMovieStorage.save(Comedymovie5);
         } catch (IOException e) {
 
-            IO.readln("Filen finns inte");
+            IO.println("Filen finns inte");
 
         }
 
