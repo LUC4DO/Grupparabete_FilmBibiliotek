@@ -32,19 +32,19 @@ public class Main {
             IO.readln("Filen existerar inte");
         }
 
-        DramaMovieStorage<DramaMovie> DramaStorage = new DramaMovieStorage(Path.of("data", "dramamovies.json"));
-        DramaMovie movie1 = new DramaMovie(1, "The Godfather");
-        DramaMovie movie2 = new DramaMovie(2, "The Shawshank Redemption");
-        DramaMovie movie3 = new DramaMovie(3, "Forest Gump");
-        DramaMovie movie4 = new DramaMovie(4, "The Pianist");
-        DramaMovie movie5 = new DramaMovie(5, "The Green Mile");
+        MovieStorage<DramaMovie> dramaStorage = new DramaMovieStorage(Path.of("data", "dramamovies.json"));
+        DramaMovie dramamovie1 = new DramaMovie(1, "The Godfather");
+        DramaMovie dramamovie2 = new DramaMovie(2, "The Shawshank Redemption");
+        DramaMovie dramamovie3 = new DramaMovie(3, "Forest Gump");
+        DramaMovie dramamovie4 = new DramaMovie(4, "The Pianist");
+        DramaMovie dramamovie5 = new DramaMovie(5, "The Green Mile");
 
         try {
-            DramaStorage.save(movie1);
-            DramaStorage.save(movie2);
-            DramaStorage.save(movie3);
-            DramaStorage.save(movie4);
-            DramaStorage.save(movie5);
+            dramaStorage.save(dramamovie1);
+            dramaStorage.save(dramamovie2);
+            dramaStorage.save(dramamovie3);
+            dramaStorage.save(dramamovie4);
+            dramaStorage.save(dramamovie5);
         } catch (IOException e) {
             IO.readln("Filen existerar inte");
         }
