@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ComedyMovieStorage implements MovieStorage<ComedyMovie> {
+
     ObjectMapper mapper = new ObjectMapper();
     Path path = Path.of("data", "ComedyMovies.json");
 
