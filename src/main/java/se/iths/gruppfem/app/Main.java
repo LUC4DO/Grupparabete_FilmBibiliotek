@@ -82,6 +82,27 @@ public class Main {
             IO.println("Filen kan inte hittas");
         }
 
+        new Main().menyChoice();
     }
 
+    public void menyChoice() {
+        boolean exit = false;
+        while (exit == false) {
+            String choice = IO.readln("Val 1: Visa filmer i en viss kategori \nVal 2: Visa alla filmer \nVal 0: Avsluta applikationen\n");
+            switch (choice) {
+                case "1" -> showMoviesInCategory();
+                case "2" -> showAllMovies();
+                case "3" -> exit = true;
+                default -> exit = true;
+            }
+        }
+    }
+
+    void showMoviesInCategory() {
+        IO.println("1");
+    }
+
+    void showAllMovies() {
+        IO.println("2");
+    }
 }
