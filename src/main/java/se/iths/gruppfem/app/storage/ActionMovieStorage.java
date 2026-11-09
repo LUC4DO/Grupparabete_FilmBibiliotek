@@ -7,6 +7,7 @@ import se.iths.gruppfem.app.model.ActionMovie;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ActionMovieStorage implements MovieStorage<ActionMovie> {
@@ -30,7 +31,7 @@ public class ActionMovieStorage implements MovieStorage<ActionMovie> {
             return;
         }
         //Skapar en lista med hjälpa av findAll() metoden, -> lägger till film -> skriver om JSON filen
-        List<ActionMovie> actionMovieList = findAll();
+        List<ActionMovie> actionMovieList = new ArrayList<>(findAll());
         actionMovieList.add(movie);
         mapper.writerWithDefaultPrettyPrinter().writeValue(path.toFile(), actionMovieList);
     }
