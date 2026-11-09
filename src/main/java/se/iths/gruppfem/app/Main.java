@@ -1,12 +1,10 @@
 package se.iths.gruppfem.app;
 
+import se.iths.gruppfem.app.model.ActionMovie;
 import se.iths.gruppfem.app.model.ComedyMovie;
 import se.iths.gruppfem.app.model.DramaMovie;
 import se.iths.gruppfem.app.model.HorrorMovie;
-import se.iths.gruppfem.app.storage.ComedyMovieStorage;
-import se.iths.gruppfem.app.storage.DramaMovieStorage;
-import se.iths.gruppfem.app.storage.HorrorMovieStorage;
-import se.iths.gruppfem.app.storage.MovieStorage;
+import se.iths.gruppfem.app.storage.*;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -66,6 +64,24 @@ public class Main {
             IO.println("Filen finns inte, fattar du väl?");
 
         }
+
+        MovieStorage<ActionMovie> actionStorage = new ActionMovieStorage(Path.of("data", "action-movies.json"));
+        ActionMovie movieOne = new ActionMovie(1, "Iron man");
+        ActionMovie movieTwo = new ActionMovie(1, "Wonder Woman");
+        ActionMovie movieThree = new ActionMovie(1, "Batman");
+        ActionMovie movieFour = new ActionMovie(1, "Captain America");
+        ActionMovie movieFive = new ActionMovie(1, "Flash");
+
+        try {
+            actionStorage.save(movieOne);
+            actionStorage.save(movieTwo);
+            actionStorage.save(movieThree);
+            actionStorage.save(movieFour);
+            actionStorage.save(movieFive);
+        } catch (IOException e) {
+            IO.println("Filen kan inte hittas");
+        }
+
     }
 
 }
