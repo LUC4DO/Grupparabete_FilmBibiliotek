@@ -80,9 +80,9 @@ public class Main {
             actionStorage.save(movieFive);
         } catch (IOException e) {
             IO.println("Filen kan inte hittas");
+            new Main().menyChoice();
         }
 
-        new Main().menyChoice();
     }
 
     public void menyChoice() {
