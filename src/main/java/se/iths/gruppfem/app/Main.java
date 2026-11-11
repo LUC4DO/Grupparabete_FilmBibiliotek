@@ -1,13 +1,12 @@
 package se.iths.gruppfem.app;
 
-import se.iths.gruppfem.app.model.ActionMovie;
-import se.iths.gruppfem.app.model.ComedyMovie;
-import se.iths.gruppfem.app.model.DramaMovie;
-import se.iths.gruppfem.app.model.HorrorMovie;
+import se.iths.gruppfem.app.model.*;
 import se.iths.gruppfem.app.storage.*;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     static void main() {
@@ -62,7 +61,6 @@ public class Main {
         } catch (IOException e) {
 
             IO.println("Filen finns inte");
-            e.printStackTrace();
 
         }
 
@@ -81,30 +79,48 @@ public class Main {
             actionStorage.save(movieFive);
         } catch (IOException e) {
             IO.println("Filen kan inte hittas");
-            e.printStackTrace();
-            new Main().menyChoice();
         }
 
-    }
-
-    public void menyChoice() {
         boolean exit = false;
-        while (exit == false) {
-            String choice = IO.readln("Val 1: Visa filmer i en viss kategori \nVal 2: Visa alla filmer \nVal 0: Avsluta applikationen\n");
-            switch (choice) {
-                case "1" -> showMoviesInCategory();
-                case "2" -> showAllMovies();
-                case "3" -> exit = true;
-                default -> exit = true;
+        while (!exit) {
+            String choice = IO.readln("Val 1: Visa filmer i en viss kategori\nVal 2: Visa alla filmer \nVal 0: Avsluta applikationen\n");
+            try {
+                switch (choice.trim()) {
+                    case "1" -> {
+                        String category = IO.readln("Ange kategori (1: Skräckfilm, 2: Dramafilm, 3: Actionfilm, 4: Komedifilm): ");
+                        List<? extends Movie> movies = switch (category.toLowerCase()) {
+                            case "1", "skräckfilm" -> horrorStorage.findAll();
+                            case "2", "dramafilm" -> dramaStorage.findAll();
+                            case "3", "actionfilm" -> actionStorage.findAll();
+                            case "4", "komedifilm" -> ComedyMovieStorage.findAll();
+                            default -> {
+                                IO.println("Okänd kategori");
+                                yield List.of();
+                            }
+                        };
+                        for (Movie movie : movies) {
+                            IO.println(movie.getTitle());
+                        }
+                    }
+                    case "2" -> {
+                        List<Movie> allMovies = new ArrayList<>();
+                        allMovies.addAll(horrorStorage.findAll());
+                        allMovies.addAll(dramaStorage.findAll());
+                        allMovies.addAll(actionStorage.findAll());
+                        allMovies.addAll(ComedyMovieStorage.findAll());
+                        for (Movie movie : allMovies) {
+                            IO.println(movie.getTitle() + " (" + movie.category() + ")");
+                        }
+                    }
+                    case "0" -> exit = true;
+                    default -> IO.println("Ogiltigt val, försök igen.");
+                }
+            } catch (IOException e) {
+                IO.println("Kunde inte läsa filmerna: " + e.getMessage());
             }
         }
+
     }
 
-    void showMoviesInCategory() {
-        IO.println("1");
-    }
 
-    void showAllMovies() {
-        IO.println("2");
-    }
 }
