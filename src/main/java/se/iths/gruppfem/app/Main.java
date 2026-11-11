@@ -62,15 +62,16 @@ public class Main {
         } catch (IOException e) {
 
             IO.println("Filen finns inte");
+            e.printStackTrace();
 
         }
 
         MovieStorage<ActionMovie> actionStorage = new ActionMovieStorage(Path.of("data", "action-movies.json"));
         ActionMovie movieOne = new ActionMovie(1, "Iron man");
-        ActionMovie movieTwo = new ActionMovie(1, "Wonder Woman");
-        ActionMovie movieThree = new ActionMovie(1, "Batman");
-        ActionMovie movieFour = new ActionMovie(1, "Captain America");
-        ActionMovie movieFive = new ActionMovie(1, "Flash");
+        ActionMovie movieTwo = new ActionMovie(2, "Wonder Woman");
+        ActionMovie movieThree = new ActionMovie(3, "Batman");
+        ActionMovie movieFour = new ActionMovie(4, "Captain America");
+        ActionMovie movieFive = new ActionMovie(5, "Flash");
 
         try {
             actionStorage.save(movieOne);
@@ -80,6 +81,7 @@ public class Main {
             actionStorage.save(movieFive);
         } catch (IOException e) {
             IO.println("Filen kan inte hittas");
+            e.printStackTrace();
             new Main().menyChoice();
         }
 
