@@ -14,8 +14,7 @@ import java.util.List;
 public class ComedyMovieStorage implements MovieStorage<ComedyMovie> {
 
     ObjectMapper mapper = new ObjectMapper();
-    Path path = Path.of("data", "ComedyMovies.json");
-
+    Path path;
 
     public ComedyMovieStorage(Path path) {
         this.path = path;
