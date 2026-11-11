@@ -94,7 +94,7 @@ public class Main {
                             case "3", "actionfilm" -> actionStorage.findAll();
                             case "4", "komedifilm" -> ComedyMovieStorage.findAll();
                             default -> {
-                                IO.println("Okänd kategori: " + category);
+                                IO.println("Okänd kategori");
                                 yield List.of();
                             }
                         };
