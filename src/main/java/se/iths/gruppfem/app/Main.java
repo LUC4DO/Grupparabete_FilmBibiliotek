@@ -61,7 +61,7 @@ public class Main {
             ComedyMovieStorage.save(Comedymovie5);
         } catch (IOException e) {
 
-            IO.println("Filen finns inte, fattar du väl?");
+            IO.println("Filen finns inte");
 
         }
 
