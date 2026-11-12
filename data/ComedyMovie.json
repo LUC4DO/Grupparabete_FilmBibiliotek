@@ -1,16 +1,22 @@
-[ {
-  "id" : 1,
-  "title" : "Dum och Dummare"
-}, {
-  "id" : 2,
-  "title" : "Repmånad"
-}, {
-  "id" : 3,
-  "title" : "Dumpad"
-}, {
-  "id" : 4,
-  "title" : "Nu blåser vi snuten"
-}, {
-  "id" : 5,
-  "title" : "Sälskapsresan"
-} ]
+[
+  {
+    "id": 1,
+    "title": "Dum och Dummare"
+  },
+  {
+    "id": 2,
+    "title": "Repmånad"
+  },
+  {
+    "id": 3,
+    "title": "Dumpad"
+  },
+  {
+    "id": 4,
+    "title": "Nu blåser vi snuten"
+  },
+  {
+    "id": 5,
+    "title": "Sälskapsresan"
+  }
+]
